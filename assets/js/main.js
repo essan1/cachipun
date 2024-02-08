@@ -35,6 +35,7 @@ function iniciarJuego() {
       return "Vamos, vuelve a intentarlo!";
     }
 
+    //alerta para mostrar la eleccion de ambos.
     alert(`Tu eliges ${userPick}, yo elijo ${pcPick}`);
 
     //determinar resultados
