@@ -1,6 +1,7 @@
 function iniciarJuego() {
   //preguntamos cuantas veces quiere jugar
-  let rondas = +prompt(`cuantas rondas quieres jugar?`);
+  let userName = prompt(`Bienvenido al CA👊 - CHI🤚 - PUN✌️!\nComo te llamas?`);
+  let rondas = +prompt(`Muy bien ${userName},\nCuantas rondas quieres jugar?\n(Indicame con un numero)`);
 
   //generamos la eleccion de pc
   function pcEleccion() {
@@ -21,7 +22,7 @@ function iniciarJuego() {
 
   //funcion para jogar una ronda
   function jugarRonda() {
-    let userPick = prompt("Escoge: Piedra, Papel o Tijera").toLowerCase();
+    let userPick = prompt(`Escoge: Piedra🪨, Papel📃 o Tijera✂️\nEscribe tu opcion.`).toLowerCase();
     let pcPick = pcEleccion();
 
     // se verifica la eleccion de user
@@ -40,38 +41,38 @@ function iniciarJuego() {
     if (userPick === "piedra") {
       if (pcPick === "piedra") {
         empates++;
-        return "Empate";
+        return "Empate🤝";
       } else if (pcPick === "papel") {
         victoriasPC++;
-        return "Yo Gano";
+        return "Yo Gano😈";
       } else {
         victoriasUsuario++;
-        return "Tu ganas";
+        return "Tu ganas🤬";
       }
     } else if (userPick === "papel") {
       if (pcPick === "piedra") {
         victoriasUsuario++;
-        return "Tu ganas";
+        return "Tu ganas🤬";
       } else if (pcPick === "papel") {
         empates++;
-        return "empate";
+        return "Empate🤝";
       } else {
         victoriasPC++;
-        return "yo gano";
+        return "Yo gano😈";
       }
     } else if (userPick === "tijera") {
       if (pcPick === "piedra") {
         victoriasPC++;
-        return "Yo gano";
+        return "Yo gano😈";
       } else if (pcPick === "papel") {
         victoriasUsuario++;
-        return "tu ganas";
+        return "Tu ganas🤬";
       } else {
         empates++;
-        return "empate";
+        return "Empate🤝";
       }
     } else {
-      return "eleccion invalida";
+      return "Eleccion Invalida 🙄";
     }
   }
 
@@ -85,11 +86,11 @@ function iniciarJuego() {
   // let para guardar el resultado final y poder pasarlo al html
   let resultadoFinal;
   if (victoriasUsuario > victoriasPC) {
-    resultadoFinal = `¡Felicidades, has ganado el juego!, me venciste ${victoriasUsuario} a ${victoriasPC}`;
+    resultadoFinal = `¡Felicidades🎊, has ganado el juego! Me venciste ${victoriasUsuario} a ${victoriasPC}👍`;
   } else if (victoriasUsuario < victoriasPC) {
-    resultadoFinal = `Lo siento, has perdido el juego. Te gané ${victoriasPC} a ${victoriasUsuario}`;
+    resultadoFinal = `Lo siento🙄, has perdido el juego. Te gané ${victoriasPC} a ${victoriasUsuario}😎`;
   } else {
-    resultadoFinal = `El juego terminó en empate. Hemos quedado ${victoriasPC} a ${victoriasUsuario}`;
+    resultadoFinal = `El juego terminó en empate📍 Hemos quedado ${victoriasPC} a ${victoriasUsuario}🤗`;
   }
 
   // 
