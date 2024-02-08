@@ -1,6 +1,7 @@
 function iniciarJuego() {
   //preguntamos cuantas veces quiere jugar
-  let rondas = +prompt(`cuantas rondas quieres jugar?`);
+  let userName = prompt(`Bienvenido al Cachipun!\nComo te llamas?`)
+  let rondas = +prompt(`Muy bien ${userName},\ncuantas rondas quieres jugar?`);
 
   //generamos la eleccion de pc
   function pcEleccion() {
@@ -34,6 +35,7 @@ function iniciarJuego() {
       return "Vamos, vuelve a intentarlo!";
     }
 
+    //alerta para mostrar la eleccion de ambos.
     alert(`Tu eliges ${userPick}, yo elijo ${pcPick}`);
 
     //determinar resultados
