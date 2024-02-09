@@ -1,7 +1,9 @@
 function iniciarJuego() {
-  //preguntamos cuantas veces quiere jugar
+  //Bienvenida y preguntamos cuantas veces quiere jugar
   let userName = prompt(`Bienvenido al CA👊 - CHI🤚 - PUN✌️!\nComo te llamas?`);
-  let rondas = +prompt(`Muy bien ${userName},\nCuantas rondas quieres jugar?\n(Indicame con un numero)`);
+  let rondas = +prompt(
+    `Muy bien ${userName},\nCuantas rondas quieres jugar?\n(Indicame con un numero)`
+  );
 
   //generamos la eleccion de pc
   function pcEleccion() {
@@ -22,7 +24,9 @@ function iniciarJuego() {
 
   //funcion para jogar una ronda
   function jugarRonda() {
-    let userPick = prompt(`Escoge: Piedra🪨, Papel📃 o Tijera✂️\nEscribe tu opcion.`).toLowerCase();
+    let userPick = prompt(
+      `Escoge: Piedra🪨, Papel📃 o Tijera✂️\nEscribe tu opcion.`
+    ).toLowerCase();
     let pcPick = pcEleccion();
 
     // se verifica la eleccion de user
@@ -32,49 +36,52 @@ function iniciarJuego() {
       userPick !== "tijera"
     ) {
       alert("Eleccion invalida. Por favor, escoge: Piedra, Papel o Tijera");
-      return "Vamos, vuelve a intentarlo!";
     }
 
     //alerta para mostrar la eleccion de ambos.
     alert(`Tu eliges ${userPick}, yo elijo ${pcPick}`);
 
     //determinar resultados
+    let resultado;
     if (userPick === "piedra") {
       if (pcPick === "piedra") {
         empates++;
-        return "Empate🤝";
+        resultado = "Empate🤝";
       } else if (pcPick === "papel") {
         victoriasPC++;
-        return "Yo Gano😈";
+        resultado = "Yo Gano😈";
       } else {
         victoriasUsuario++;
-        return "Tu ganas🤬";
+        resultado = "Tu ganas🤬";
       }
     } else if (userPick === "papel") {
       if (pcPick === "piedra") {
         victoriasUsuario++;
-        return "Tu ganas🤬";
+        resultado = "Tu ganas🤬";
       } else if (pcPick === "papel") {
         empates++;
-        return "Empate🤝";
+        resultado = "Empate🤝";
       } else {
         victoriasPC++;
-        return "Yo gano😈";
+        resultado = "Yo gano😈";
       }
     } else if (userPick === "tijera") {
       if (pcPick === "piedra") {
         victoriasPC++;
-        return "Yo gano😈";
+        resultado = "Yo gano😈";
       } else if (pcPick === "papel") {
         victoriasUsuario++;
-        return "Tu ganas🤬";
+        resultado = "Tu ganas🤬";
       } else {
         empates++;
-        return "Empate🤝";
+        resultado = "Empate🤝";
       }
     } else {
-      return "Eleccion Invalida 🙄";
+      resultado = "Eleccion Invalida 🙄";
     }
+
+    // Mostrar el resultado de la ronda y el marcador actual
+    return `${resultado}\n${userName} = ${victoriasUsuario}, YO😎 = ${victoriasPC}, y Empates = ${empates}.`;
   }
 
   // rondas a jugar (determinado x el user)
@@ -82,8 +89,7 @@ function iniciarJuego() {
     let resultado = jugarRonda();
     alert(resultado);
   }
-
-
+  
   // let para guardar el resultado final y poder pasarlo al html
   let resultadoFinal;
   if (victoriasUsuario > victoriasPC) {
@@ -94,7 +100,7 @@ function iniciarJuego() {
     resultadoFinal = `El juego terminó en empate📍 Hemos quedado ${victoriasPC} a ${victoriasUsuario}🤗`;
   }
 
-  // 
+  //
   let resultadoHtml = document.getElementById("resultado");
   resultadoHtml.innerHTML = `${resultadoFinal}`;
 }
